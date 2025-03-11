@@ -16,19 +16,24 @@ class App extends Component {
       chrono: 0,
     };
   }
-
-  
-  toggleShow = () =>{
-    this.setState({shows : !this.state.shows} )
+  componentDidMount() {
+    this.interval = setInterval(() => {
+      this.setState({ chrono: this.state.chrono + 1 });
+    }, 1000);
   }
-// hedhi function bch tbadel shows 
-
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+  toggleShow = () => {
+    this.setState({ shows: !this.state.shows });
+  };
+  // hedhi function bch tbadel shows
 
   render() {
-    const { person, shows } = this.state;
+    const { person, shows , chrono} = this.state;
     return (
-      <div>
-        <button onClick={this.toggleShow}>toggleShow</button>
+      <div class='profiles'>
+        <button onClick={this.toggleShow}>{(shows)?("Hide Profile"):("Show Profile")}</button>
         {shows && (
           <div>
             <img src={person.imgSrc} alt="larry" />
@@ -37,6 +42,7 @@ class App extends Component {
             <p>{person.profession}</p>
           </div>
         )}
+        <p>The page starts on {chrono} seconds</p>
       </div>
     );
   }

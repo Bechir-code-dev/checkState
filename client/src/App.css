@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin: 20px;
 }
 
 .App-logo {
@@ -35,4 +36,17 @@
   to {
     transform: rotate(360deg);
   }
+}
+img {
+  border-radius: 10px;
+  width: 250px;
+  height: 200px;
+  margin-top: 5px;
+}
+.profiles{
+  text-align: center;
+  margin: 20px;
+}
+button{
+  border-radius: 5px;
 }
